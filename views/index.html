@@ -32,6 +32,7 @@
         }
 
         button{
+            margin-top: 10px;
             width: 100px;
             height: 45px;
             border: none;
@@ -57,13 +58,12 @@
 
     <h1>Tạo 1 user mới</h1>
     <form action="http://localhost:3000/user/new" method="POST">
-        <input name="username" type="text" placeholder="username"/> 
+        <input name="username" type="text" placeholder="username" required/> 
         <input name="email" type="email" placeholder="email"/>
-        <input name="password" type="password" placeholder="Password"/>
+        <input name="password" type="password" placeholder="Password" required/>
         <button type="submit">Save</button>
     </form>
-    <hr>
-    <button style="margin-top: 15px;" onclick="getUsers()" >Lấy toàn bộ user</button>
+    <button style="margin-top: 50px;" onclick="getUsers()" >Lấy toàn bộ user</button>
     <h3>Danh sách các user đã tạo:</h3>
     <ul id="userList">
 
