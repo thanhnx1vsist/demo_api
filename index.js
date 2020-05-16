@@ -12,7 +12,7 @@ app.use(express.static(__dirname));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.post('/user', async(req, res) =>{
+app.post('/user/new', async(req, res) =>{
     var user = await new User({
         username : req.body.username,
         email : req.body.email,
@@ -20,7 +20,7 @@ app.post('/user', async(req, res) =>{
     })
 
     var users = await user.save();
-    res.json(users);
+    res.render("index.html")
 });
 
 
@@ -33,6 +33,11 @@ app.get('/user/:username', async(req, res)=>{
     var user = await User.find({username : req.params.username});
     res.json(user);
 })
+
+app.get("/", (req,res)=>{
+    res.render("index.html")
+})
+
 
 
 app.listen(3000, ()=>{console.log('Server is running in port 3000')});
