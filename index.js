@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const User = require('./model/user')
-const db = 'mongodb://localhost/test_egg';
+const db = 'mongodb+srv://all:eggPassword@egg-web-bhj5p.gcp.mongodb.net/egg_demo?retryWrites=true&w=majority';
 const body_parser = require('body-parser');
 
 

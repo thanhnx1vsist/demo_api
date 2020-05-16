@@ -2,8 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewpo  rt" content="width=device-width, initial-scale=1.0">
     <title>Demo</title>
+
+    <style>
+        *{
+            background-color: #efefef;
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+        body{
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+
+        input{
+            display: block;
+            margin: 10px 0;
+            background-color: #fff;
+            padding-left: 10px;
+            width: 200%;
+            height: 35px;
+            border: none;
+            box-shadow: 5px 5px 3px grey;
+            transform: translate(-25%, 0%)
+        }
+
+        button{
+            width: 100px;
+            height: 45px;
+            border: none;
+            color :#fff;
+            border-radius: 10%;
+            background-color: #4DBF50;
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -12,21 +48,23 @@
         .then(data=>{
             let users = ""
             for (user in data){
-                users+= data[user].username + "<br>" 
+                users+= "+ "+data[user].username + "<br>" 
             }
 
             document.getElementById("userList").innerHTML = users
         })
     </script>
 
+    <h1>Tạo 1 user mới</h1>
     <form action="http://localhost:3000/user/new" method="POST">
         <input name="username" type="text" placeholder="username"/> 
         <input name="email" type="email" placeholder="email"/>
         <input name="password" type="password" placeholder="Password"/>
         <button type="submit">Save</button>
     </form>
-
-    <button onclick="getUsers()" >Lấy toàn bộ user</button>
+    <hr>
+    <button style="margin-top: 15px;" onclick="getUsers()" >Lấy toàn bộ user</button>
+    <h3>Danh sách các user đã tạo:</h3>
     <ul id="userList">
 
     </ul>    
